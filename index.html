@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./logo.svg" type="image/x-icon" />
+    <title>Frani Bizi front end developer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap");
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Outfit", sans-serif;
+        text-align: center;
+        user-select: none;
+        background-color: #22262d;
+        color: #ffffff;
+      }
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        margin-top: 6rem;
+      }
+      .img-container {
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 300px;
+      }
+      .text-container {
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 700px;
+        padding: 0 1rem;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      a {
+        color: #ffffff;
+        /* text-decoration: none; */
+        font-weight: 600;
+        color: #e84855;
+        transition: color 0.3s ease-in-out;
+      }
+      a:hover {
+        color: #155eb0;
+        text-decoration: underline;
+      }
+      .countdown {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Welcome to My Portfolio</h1>
+
+      <div class="img-container">
+        <img src="./logo.svg" alt="frani bizi logo" draggable="false" />
+      </div>
+
+      <div class="text-container">
+        <p>
+          Exciting news! My portfolio will be available online starting this
+          Sunday! I can't wait to share my work with you. Stay tuned and mark
+          your calendars for the big reveal! you can also check my
+
+          <a
+            href="https://www.linkedin.com/in/frani-bizi/"
+            target="_blank"
+            class="link__bar nav-link"
+          >
+            Linkedin
+          </a>
+          or my
+
+          <a
+            href="https://github.com/MisterFrani/"
+            target="_blank"
+            class="link__bar nav-link"
+          >
+            Github
+          </a>
+        </p>
+
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+      const countDownDate = new Date("June 18, 2023 00:00:00").getTime();
+
+      const countdownTimer = setInterval(function () {
+        const now = new Date().getTime();
+
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(countdownTimer);
+          document.getElementById("countdown").innerHTML =
+            "Portfolio is now online!";
+        }
+      });
+    </script>
+  </body>
+</html>
